@@ -77,6 +77,9 @@
 # @param use_issue_net
 #   Add issue_net banner
 #
+# @param issue_net
+#   Path to the issue.net file
+#
 # @param sshd_environments_file
 #   Path to a sshd environments file (e.g. /etc/defaults/ssh on Debian)
 #
@@ -85,6 +88,7 @@
 #
 class ssh::server (
   String[1]                      $service_name,
+  Stdlib::Absolutepath           $issue_net
   Stdlib::Absolutepath           $sshd_config,
   Stdlib::Absolutepath           $sshd_dir,
   Stdlib::Absolutepath           $sshd_binary,
