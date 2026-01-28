@@ -580,6 +580,7 @@ The following parameters are available in the `ssh::server` class:
 * [`options_absent`](#-ssh--server--options_absent)
 * [`match_block`](#-ssh--server--match_block)
 * [`use_issue_net`](#-ssh--server--use_issue_net)
+* [`issue_net`](#-ssh--server--issue_net)
 * [`sshd_environments_file`](#-ssh--server--sshd_environments_file)
 * [`server_package_name`](#-ssh--server--server_package_name)
 
@@ -744,6 +745,12 @@ Data type: `Boolean`
 Add issue_net banner
 
 Default value: `false`
+
+##### <a name="-ssh--server--issue_net"></a>`issue_net`
+
+Data type: `Stdlib::Absolutepath`
+
+Path to the issue.net file
 
 ##### <a name="-ssh--server--sshd_environments_file"></a>`sshd_environments_file`
 
