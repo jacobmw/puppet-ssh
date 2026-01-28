@@ -88,7 +88,7 @@
 #
 class ssh::server (
   String[1]                      $service_name,
-  Stdlib::Absolutepath           $issue_net
+  Stdlib::Absolutepath           $issue_net,
   Stdlib::Absolutepath           $sshd_config,
   Stdlib::Absolutepath           $sshd_dir,
   Stdlib::Absolutepath           $sshd_binary,
