@@ -66,12 +66,18 @@ class ssh::server::config {
   }
 
   if $ssh::server::use_issue_net {
+    if $ssh::server::issue_net_content {
+      $issue_net_content_real = $ssh::server::issue_net_content
+    } else {
+      $issue_net_content_real = template("${module_name}/issue.net.erb")
+    }
+
     file { $ssh::server::issue_net:
       ensure  => file,
       owner   => $ssh::server::config_user,
       group   => $ssh::server::config_group,
       mode    => $ssh::server::sshd_config_mode,
-      content => template("${module_name}/issue.net.erb"),
+      content => $issue_net_content_real,
       notify  => Service[$ssh::server::service_name],
     }
 

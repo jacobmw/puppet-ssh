@@ -80,6 +80,10 @@
 # @param issue_net
 #   Path to the issue.net file
 #
+# @param issue_net_content
+#   Content of the issue.net file. If undef (default), uses the template.
+#   If set to a string, uses that content instead of the template.
+#
 # @param sshd_environments_file
 #   Path to a sshd environments file (e.g. /etc/defaults/ssh on Debian)
 #
@@ -111,6 +115,7 @@ class ssh::server (
   Array                          $options_absent         = [],
   Hash                           $match_block            = {},
   Boolean                        $use_issue_net          = false,
+  Optional[String]               $issue_net_content      = undef,
   Optional[Stdlib::Absolutepath] $sshd_environments_file = undef,
   Optional[String[1]]            $server_package_name    = undef,
 ) {
