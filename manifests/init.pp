@@ -146,7 +146,11 @@
 #
 # @param use_issue_net
 #   Use issue_net header
+#   If set to a string, uses that content instead of the template.
 #
+# @param issue_net_content
+#   Content of the issue.net file.  If undef (default), uses the module's template.
+#   
 # @param purge_unmanaged_sshkeys
 #   Purge unmanaged sshkeys
 #
@@ -166,6 +170,7 @@ class ssh (
   Array                                    $server_options_absent   = [],
   Array                                    $client_options_absent   = [],
   Boolean                                  $use_issue_net           = false,
+  Optional[String]                         $issue_net_content       = undef,
   Boolean                                  $purge_unmanaged_sshkeys = true,
   Hash[String[1],Hash[String[1],NotUndef]] $server_instances        = {},
 ) {
@@ -177,6 +182,7 @@ class ssh (
     use_augeas           => $use_augeas,
     options_absent       => $server_options_absent,
     use_issue_net        => $use_issue_net,
+    issue_net_content    => $issue_net_content,
   }
 
   class { 'ssh::client':
